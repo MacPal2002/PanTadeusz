@@ -15,9 +15,15 @@
         </header>
         <div class="container">
             <div class="row">
+                <h2>Spis treści</h2>
                 <ul class="col-4">
-                    <h2>Spis treści</h2>
-                    <li><a href="./k1.html">Księga 1</a></li>
+                    <li><a href="./index.php">Strona Główna</a></li>
+                    <?php
+                        for ($k = 1; $k <= 12 ; $k++) {
+                            print("<li><a href=\"./index.php?k=$k\">Księga $k</a></li>");
+                        }
+                    ?>
+                    <!-- <li><a href="./k1.html">Księga 1</a></li>
                     <li><a href="./k2.html">Księga 2</a></li>
                     <li><a href="./k3.html">Księga 3</a></li>
                     <li><a href="./k4.html">Księga 4</a></li>
@@ -28,10 +34,18 @@
                     <li><a href="./k9.html">Księga 9</a></li>
                     <li><a href="./k10.html">Księga 10</a></li>
                     <li><a href="./k11.html">Księga 11</a></li>
-                    <li><a href="./k12.html">Księga 12</a></li>
+                    <li><a href="./k12.html">Księga 12</a></li> -->
                 </ul>
                 <div class="col-8">
-                    <img src="./pan_tadeusz.jpg" alt="Pan Tadeusz">
+                    <?php
+                        if(isset($_GET['k'])){
+                            $k = $_GET['k'];
+                            include_once("k$k.html");
+                        } else{
+                            print('<img src="./pan_tadeusz.jpg" alt="Pan Tadeusz">');
+                        }
+                    ?>
+                    
                 </div>
             </div>
         </div>
